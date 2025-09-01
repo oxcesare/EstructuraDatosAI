@@ -1,3 +1,5 @@
+# Operaciones Matemáticas (Vectorizadas)
+
 import numpy as np
 
 # Creación de una matriz 3x3
