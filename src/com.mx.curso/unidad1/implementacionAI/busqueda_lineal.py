@@ -16,7 +16,7 @@ matriz = [[0, 2, 3],
           [7, 8, 0],
           [7, 88, 0]
 ]   
-objetivo = 88
+objetivo = 255
 start_time = time.time()
 resultado = busqueda_lineal_matriz(matriz, objetivo)
 end_time = time.time()
