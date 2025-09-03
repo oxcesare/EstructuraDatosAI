@@ -8,25 +8,26 @@ matriz = [
     [0,1,0,1,2,1,0,1],
     [0,1,0,1,1,1,0,1],
     [0,1,0,1,2,1,0,0],
-    [0,1,0,1,1,1,0,0],
+    [0,1,2,1,1,1,0,0],
     [0,1,0,1,2,1,0,0]
 ]
 
-# Imprimir mapa de riesgo
-for fila in matriz:
-    for valor in fila:
-        print(valor, end=" ")
+# Otra forma de imprimir la matriz 
+for i in range(len(matriz)):
+    for j in range(len(matriz[i])):
+        print(matriz[i][j], end=" ")
+    print() # Nueva línea después de cada fila
 
 area_riesgo=0
 area_precaucion=0
 
+
 # Imprimir mapa de riesgo
-for fila in matriz:
-    for valor in fila:
-        print(valor, end=" ")
-        if valor == 1:
+for i in range(len(matriz)):
+    for j in range(len(matriz[i])):
+        if matriz[i][j] == 1:
             area_precaucion += 1
-        elif valor == 2:
+        elif matriz[i][j] == 2:
             area_riesgo += 1
     print()  # Nueva línea después de cada fila 
 
