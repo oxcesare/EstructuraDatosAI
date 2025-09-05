@@ -1,0 +1,63 @@
+/** Comandos practica 1
+
+1. git init
+2. pwd 
+mkdir story-blog
+pwd 
+cd 
+story-blog
+3. git init
+4. .git
+
+Let's test some of the concepts we learned so far in our lectures.
+Which area of a local Git repository contains files with active (uncommitted) changes immediately after initializing the repository?
+R=Working area
+
+5. 
+
+touch lion-and-mouse.txt
+echo "A Lion lay asleep in the forest" > lion-and-mouse.txt
+
+6.
+In Git, which stage contains changes that are ready to be committed to the local repository?
+Note: This refers to files that have been added with git add but not yet committed.
+R= stage Area  (Area entre mi repositorio local y mi repositorio remoto)
+
+
+10.
+Which area of the local git repository is the lion-and-mouse.txt file in ?
+R= Working area
+
+11. Stage the file lion-and-mouse.txt to make it available for commit.
+
+R= git add .
+
+
+13.
+git commit -m "Added the lion and mouse story"
+
+14. Untracked
+
+15.
+
+It is good that the file is untracked. But it is still under GIT's radar. If you run the "git add ." command accidentally git will start to track this file.
+Let's configure git to ignore this file permanently.
+
+R= 
+touch .gitignore
+
+echo ".gitignore." >> .gitignore
+echo "notes.txt" >> .gitignore
+
+16.What's the status of the file notes.txt now in the git status command's output.
+R= Not is list 
+
+19. hacer primero el commit y después primero el add y luego el commit con los datos
+
+
+Increase time from 400 to 500
+
+20.
+
+cat .gitignore
+

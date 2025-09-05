@@ -1,0 +1,59 @@
+
+
+1. Comando para validar la instalación de Git 
+
+   git --version 
+
+
+Si no lo tienes, descárgalo de https://git-scm.com/.
+
+Tener una cuenta de GitHub y un repositorio creado
+Si aún no lo tienes, crea uno en https://github.com.
+
+Tener VS Code instalado
+Descárgalo aquí si no lo tienes: https://code.visualstudio.com/
+
+
+Configurar Git por primera vez (si aún no lo hiciste):
+git config --global user.name "Tu Nombre"
+git config --global user.email "tuemail@ejemplo.com"
+
+
+git init
+git add .
+git commit -m "Primer commit"
+
+
+git remote add origin https://github.com/oxcesare/EstructuraDatosAI.git
+git branch -M main
+git push -u origin main
+
+
+/** Crear una rama 
+git checkout -b development/unidad1
+git add .
+git commit -m "Ejemplo de arreglos"
+git push -u origin development/unidad1
+
+/***
+git checkout development/unidad1
+
+
+/** Pasos para crear un entorno virtual 
+
+python3 -m venv myenv
+
+/** Activarlo
+
+source .venv/bin/activate
+
+pip install "fastapi[all]"
+
+pip install -r requirements.txt
+
+uvicorn app.main:app --reload
+
+deactivate
+
+
+
