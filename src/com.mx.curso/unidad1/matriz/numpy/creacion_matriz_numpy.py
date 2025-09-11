@@ -20,3 +20,4 @@ matriz_B = np.zeros((2, 3))
 for fila in matriz_B:
     for elemento in fila:
         print(elemento, end=" ")
+    print()    
