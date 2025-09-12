@@ -3,13 +3,12 @@
 import numpy as np
 
 # Vector de entrada (una sola característica de 3 neuronas)
-entrada = np.array([1, 2, 3])
+entrada = np.array([1,4])
 
 # Matriz de pesos (3 neuronas de entrada, 2 de salida)
 pesos = np.array([
-    [0.5, 0.2],
-    [0.8, 0.3],
-    [0.1, 0.9]
+    [0.5, 0.2,0.10,0.9],
+    [0.1, 0.9,0.10,1.1]
 ])
 
 # Realizar el producto punto
