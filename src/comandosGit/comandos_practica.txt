@@ -13,8 +13,7 @@ Let's test some of the concepts we learned so far in our lectures.
 Which area of a local Git repository contains files with active (uncommitted) changes immediately after initializing the repository?
 R=Working area
 
-5. 
-
+5.  
 touch lion-and-mouse.txt
 echo "A Lion lay asleep in the forest" > lion-and-mouse.txt
 
@@ -22,6 +21,10 @@ echo "A Lion lay asleep in the forest" > lion-and-mouse.txt
 In Git, which stage contains changes that are ready to be committed to the local repository?
 Note: This refers to files that have been added with git add but not yet committed.
 R= stage Area  (Area entre mi repositorio local y mi repositorio remoto)
+
+8. no commits
+
+9. Untracked
 
 
 10.
@@ -44,6 +47,7 @@ It is good that the file is untracked. But it is still under GIT's radar. If you
 Let's configure git to ignore this file permanently.
 
 R= 
+
 touch .gitignore
 
 echo ".gitignore." >> .gitignore
@@ -52,6 +56,10 @@ echo "notes.txt" >> .gitignore
 16.What's the status of the file notes.txt now in the git status command's output.
 R= Not is list 
 
+18.
+
+cd learning-app-ecommerce/
+
 19. hacer primero el commit y después primero el add y luego el commit con los datos
 
 
@@ -59,5 +67,6 @@ Increase time from 400 to 500
 
 20.
 
-cat .gitignore
+.idea
 
+cat .gitignore

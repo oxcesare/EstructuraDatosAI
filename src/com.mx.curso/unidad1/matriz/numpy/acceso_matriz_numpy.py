@@ -10,6 +10,8 @@ matriz_A = np.array([
 # Acceder a un elemento (fila 1, columna 2)
 elemento = matriz_A[1, 2] 
 
+print(elemento)
+
 # Modificar un elemento
 matriz_A[0, 0] = 99
 
