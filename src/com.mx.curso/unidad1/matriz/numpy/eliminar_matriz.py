@@ -25,3 +25,8 @@ print(datos_limpios)
 # axis=1 -> columnas
 # axis=0 -> filas
 # axis = None -> todo el array
+
+datos_limpios2 = np.delete(datos_limpios, 0, axis=1)
+
+print("\n--- Conjunto de datos limpio procesados ---")
+print(datos_limpios2)
