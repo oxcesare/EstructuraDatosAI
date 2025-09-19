@@ -7,6 +7,12 @@ matriz_A = np.array([
     [7, 8, 9]
 ])
 
+#Imprimir matriz original
+for fila in matriz_A:
+    for elemento in fila:
+        print(elemento, end=" ")
+    print("")    
+
 # Acceder a un elemento (fila 1, columna 2)
 elemento = matriz_A[1, 2] 
 
@@ -18,3 +24,4 @@ matriz_A[0, 0] = 99
 for fila in matriz_A:
     for elemento in fila:
         print(elemento, end=" ")
+    print("")      
