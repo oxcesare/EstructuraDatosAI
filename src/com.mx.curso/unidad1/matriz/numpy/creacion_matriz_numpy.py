@@ -11,6 +11,7 @@ matriz_A = np.array([
 for fila in matriz_A:
     for elemento in fila:
         print(elemento, end=" ")
+    print()   
 
 print("*************")
 
