@@ -30,3 +30,10 @@ datos_limpios[7, 3] = np.nan
 
 print("\n--- Se imprime matriz con datos NaN ---")
 print(datos_limpios)
+
+indices_a_eliminar=[0,4,7]
+#Simular y eliminar una Fila Errónea 
+datos_limpios = np.delete(datos_numericos, indices_a_eliminar, axis=0)
+
+print("\n--- Se imprime matriz sin datos NaN ---")
+print(datos_limpios)
