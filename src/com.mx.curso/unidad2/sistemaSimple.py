@@ -5,8 +5,8 @@ import random
 
 # Buffer circular para almacenar las últimas N lecturas de temperatura
 class BufferCircular:
-    def __init__(self, tamaño):
-        self.buffer = deque(maxlen=tamaño)
+    def __init__(self, tamano):
+        self.buffer = deque(maxlen=tamano)
 
     def agregar_lectura(self, valor):
         self.buffer.append(valor)

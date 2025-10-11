@@ -14,4 +14,5 @@ matriz[0][0]=100
 nuevoValor = matriz[0][0]
 
 print(valorEncontrado)
-print(matriz)
+for fila in matriz:
+    print(fila)

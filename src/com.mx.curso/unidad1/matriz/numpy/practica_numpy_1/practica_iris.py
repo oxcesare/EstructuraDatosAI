@@ -44,8 +44,8 @@ media_columna = np.nanmean(datos_limpios,axis=0)
 print(" ----- Media de cada columna ----- ",media_columna)
 
 # llenar los valores donde se encuentra nan por el promedio de cada columna
-for i in range(datos_limpios.shape[0]): # Shape[0] = filas 
-    for j in range(datos_limpios.shape[1]): # Shape[1] = columnas
+for i in range(datos_limpios.shape[0]): 
+    for j in range(datos_limpios.shape[1]): 
         if np.isnan(datos_limpios[i,j]): # la funcion isnan evalua si es nan
             datos_limpios[i,j] = media_columna[j]    # toma la media de columna y la agrega en la posicion del nan
 print(" ----- Datos sin errores y con nan reemplazados ----- ",datos_limpios)            
