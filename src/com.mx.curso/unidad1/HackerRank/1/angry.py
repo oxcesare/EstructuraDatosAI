@@ -1,9 +1,9 @@
 def angryProfessor(k, a):
     # Write your code here
     
-    umbral = 3
+    
     alumnos_puntuales = 0
-    alumnos_impuntuales = 0
+    
 
     for i in range(len(a)):
         if a[i] <= 0:
