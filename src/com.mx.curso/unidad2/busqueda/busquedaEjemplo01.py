@@ -51,4 +51,4 @@ if __name__ == "__main__":
     if otro_indice != -1:
         print(f"El elemento {otro_elemento} se encuentra en el índice: {otro_indice}")
     else:
-        print(f"El elemento {otro_elemento} no se encuentra en el arreglo.")
+        print(f"El elemento {otro_elemento} no se encuentra en el arreglo.") 

@@ -16,7 +16,7 @@ def busqueda_secuencial(arr, x):
 
 # --- Ejemplo de Uso (Función principal simulada) ---
 if __name__ == "__main__":
-    datos = [4, 2, 7, 1, 9, 3, 5]
+    datos = [4, 2, 7, 1, 10, 3, 5]
     elemento_a_buscar = 9
 
     indice = busqueda_secuencial(datos, elemento_a_buscar)
