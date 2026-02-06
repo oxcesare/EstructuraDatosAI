@@ -1,3 +1,6 @@
 __pycache__/
 *.pyc
 .env
+
+# Frida specifications folder
+.frida-specs/**
