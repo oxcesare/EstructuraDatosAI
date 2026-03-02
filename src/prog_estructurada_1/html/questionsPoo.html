@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación Diagnóstica - IA</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: #f0f4f8; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .quiz-container { background: white; width: 95%; max-width: 800px; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.1); overflow: hidden; }
+        .header { background: #1a4da1; color: white; padding: 25px; text-align: center; border-bottom: 4px solid #0d3a85; }
+        .content { padding: 40px; min-height: 350px; }
+        .progress { color: #1a4da1; font-weight: bold; margin-bottom: 15px; font-size: 0.9em; text-transform: uppercase; }
+        .question-text { font-size: 1.4em; color: #2c3e50; margin-bottom: 25px; font-weight: 600; line-height: 1.4; }
+        .options-grid { display: grid; gap: 12px; }
+        .option { background: white; border: 2px solid #e2e8f0; border-radius: 8px; padding: 18px; text-align: left; cursor: pointer; transition: all 0.2s; font-size: 1.1em; color: #4a5568; }
+        .option:hover { border-color: #1a4da1; background-color: #f7fafc; }
+        .result-card { text-align: center; padding: 20px; }
+        .score { font-size: 4em; font-weight: bold; color: #1a4da1; margin: 10px 0; }
+        .feedback { font-size: 1.2em; color: #4a5568; margin-bottom: 20px; }
+        .footer { text-align: center; padding: 15px; color: #a0aec0; font-size: 0.8em; border-top: 1px solid #edf2f7; }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div class="header">
+        <h1>Evaluación de Diagnóstico</h1>
+        <p>Ingeniería en Inteligencia Artificial - Calificación Automática</p>
+    </div>
+    <div class="content" id="main-content">
+        <div class="progress" id="q-num">Pregunta 1 de 15</div>
+        <div class="question-text" id="q-text">Cargando...</div>
+        <div id="options-container" class="options-grid"></div>
+    </div>
+    <div class="footer">
+        IA Academy • Diagnóstico de Programación y Objetos
+    </div>
+</div>
+
+<script>
+    const questions = [
+        { q: "¿Qué sucede con una variable local cuando la función termina?", a: ["Se mantiene guardada.", "Se destruye y libera memoria."], c: 1 },
+        { q: "Para 100 sensores, ¿qué estructura es mejor en programación estructurada?", a: ["Un arreglo (Array).", "100 variables independientes."], c: 0 },
+        { q: "¿Diferencia entre error de compilación y ejecución?", a: ["Compilación es antes; Ejecución es durante.", "Compilación es hardware; Ejecución es software."], c: 0 },
+        { q: "En un switch, ¿para qué sirve 'default'?", a: ["Detener el programa.", "Actuar si ninguna opción coincide."], c: 1 },
+        { q: "¿Tipo de dato para probabilidad (ej. 0.85)?", a: ["Integer (int)", "Float/Double"], c: 1 },
+        { q: "En POO, ¿qué es una 'Clase'?", a: ["Un objeto vivo.", "Un molde o plantilla."], c: 1 },
+        { q: "Si un Robot tiene 'Número de Serie', ¿esto es un:", a: ["Atributo.", "Método."], c: 0 },
+        { q: "Si un AgenteIA tiene la acción 'Aprender()', ¿esto es un:", a: ["Atributo.", "Método."], c: 1 },
+        { q: "¿Cómo se llama al ocultamiento de datos internos?", a: ["Encapsulamiento.", "Herencia."], c: 0 },
+        { q: "Crear 'miBot' desde la clase 'Bot' es una:", a: ["Instanciación.", "Estructuración."], c: 0 },
+        { q: "Para decidir entre 'Aceptar' o 'Rechazar' usamos:", a: ["Ciclo While.", "If-Else."], c: 1 },
+        { q: "¿Ventaja de la POO en IA compleja?", a: ["Código más corto.", "Modularidad y reutilización."], c: 1 },
+        { q: "Si 'Vehículos' hereda funciones a 'Drones', es:", a: ["Herencia.", "Polimorfismo."], c: 0 },
+        { q: "¿Cuándo se ejecuta el 'Constructor'?", a: ["Al final.", "Al crear el objeto."], c: 1 },
+        { q: "Para evitar fallos por falta de datos usamos:", a: ["Manejo de Excepciones.", "Variables Globales."], c: 0 }
+    ];
+
+    let current = 0;
+    let score = 0;
+
+    function renderQuestion() {
+        const q = questions[current];
+        document.getElementById('q-num').innerText = `Pregunta ${current + 1} de 15`;
+        document.getElementById('q-text').innerText = q.q;
+        const container = document.getElementById('options-container');
+        container.innerHTML = "";
+        
+        q.a.forEach((opt, index) => {
+            const btn = document.createElement('button');
+            btn.className = 'option';
+            btn.innerText = opt;
+            btn.onclick = () => handleAnswer(index);
+            container.appendChild(btn);
+        });
+    }
+
+    function handleAnswer(selectedIndex) {
+        if (selectedIndex === questions[current].c) {
+            score++;
+        }
+        
+        if (current < questions.length - 1) {
+            current++;
+            renderQuestion();
+        } else {
+            showResults();
+        }
+    }
+
+    function showResults() {
+        const percent = Math.round((score / questions.length) * 100);
+        let rank = "";
+        if(percent >= 90) rank = "Nivel: Arquitecto de IA";
+        else if(percent >= 70) rank = "Nivel: Desarrollador Sólido";
+        else rank = "Nivel: Aprendiz (Listo para empezar POO)";
+
+        document.getElementById('main-content').innerHTML = `
+            <div class="result-card">
+                <h2 style="color: #2c3e50;">Resultados del Diagnóstico</h2>
+                <div class="score">${score}/15</div>
+                <div class="feedback"><strong>${percent}% de aciertos</strong><br>${rank}</div>
+                <p style="color: #7f8c8d;">Este resultado servirá como base para personalizar la Unidad 1 del curso.</p>
+                <button onclick="location.reload()" style="background:#1a4da1; color:white; border:none; padding:12px 25px; border-radius:5px; cursor:pointer; font-size: 1em;">Reiniciar Evaluación</button>
+            </div>
+        `;
+    }
+
+    renderQuestion();
+</script>
+</body>
+</html>

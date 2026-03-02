@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ciclo de Vida del Archivo - Git</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f1f5f9; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+        .state-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .state-card:hover { transform: translateY(-8px); }
+        .command-badge { font-family: 'Fira Code', monospace; font-size: 0.75rem; }
+    </style>
+</head>
+<body class="p-6 md:p-12">
+    <div class="max-w-6xl mx-auto">
+        <header class="text-center mb-12">
+            <h1 class="text-3xl font-extrabold text-slate-900 mb-2">Ciclo de Vida de los Archivos</h1>
+            <p class="text-slate-600 uppercase tracking-widest text-sm font-semibold">Laboratorio de Fundamentos - Ingeniería en IA</p>
+        </header>
+
+        <div class="relative">
+            <!-- Línea de conexión central -->
+            <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-slate-300 -translate-y-1/2 z-0"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+                
+                <!-- Estado: Sin seguimiento -->
+                <div class="state-card bg-white border-2 border-slate-300 p-6 rounded-2xl shadow-lg">
+                    <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center mb-4 border border-slate-200">
+                        <span class="text-xl">❓</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-slate-800 mb-2">Untracked</h3>
+                    <p class="text-sm text-slate-500 mb-4">Archivo nuevo que Git aún no conoce.</p>
+                    <div class="bg-blue-600 text-white p-2 rounded-lg text-center command-badge">
+                        git add
+                    </div>
+                    <div class="mt-4 flex justify-center">
+                        <svg class="w-6 h-6 text-slate-400 animate-bounce-x" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    </div>
+                </div>
+
+                <!-- Estado: Sin cambios -->
+                <div class="state-card bg-white border-2 border-green-500 p-6 rounded-2xl shadow-lg">
+                    <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mb-4 border border-green-200">
+                        <span class="text-xl">✅</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-green-800 mb-2">Unmodified</h3>
+                    <p class="text-sm text-slate-500 mb-4">Archivo guardado y sin cambios pendientes.</p>
+                    <div class="bg-slate-800 text-white p-2 rounded-lg text-center command-badge">
+                        (En el Repo)
+                    </div>
+                </div>
+
+                <!-- Estado: Modificado -->
+                <div class="state-card bg-white border-2 border-amber-500 p-6 rounded-2xl shadow-lg">
+                    <div class="w-12 h-12 bg-amber-50 rounded-full flex items-center justify-center mb-4 border border-amber-200">
+                        <span class="text-xl">📝</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-amber-800 mb-2">Modified</h3>
+                    <p class="text-sm text-slate-500 mb-4">Has editado el archivo, pero no lo has preparado.</p>
+                    <div class="bg-blue-600 text-white p-2 rounded-lg text-center command-badge">
+                        git add
+                    </div>
+                </div>
+
+                <!-- Estado: Preparado -->
+                <div class="state-card bg-white border-2 border-indigo-600 p-6 rounded-2xl shadow-lg">
+                    <div class="w-12 h-12 bg-indigo-50 rounded-full flex items-center justify-center mb-4 border border-indigo-200">
+                        <span class="text-xl">📦</span>
+                    </div>
+                    <h3 class="text-lg font-bold text-indigo-800 mb-2">Staged</h3>
+                    <p class="text-sm text-slate-500 mb-4">Listo para ser incluido en el próximo commit.</p>
+                    <div class="bg-indigo-600 text-white p-2 rounded-lg text-center command-badge">
+                        git commit
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Leyenda Inferior -->
+        <div class="mt-12 bg-slate-800 text-white p-8 rounded-2xl shadow-xl">
+            <h4 class="text-xl font-bold mb-4 flex items-center">
+                <svg class="w-6 h-6 mr-2 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                Resumen para la Clase
+            </h4>
+            <div class="grid md:grid-cols-3 gap-6 text-sm">
+                <div class="border-l-4 border-indigo-500 pl-4">
+                    <p class="font-bold text-indigo-300">Staging Area</p>
+                    <p class="text-slate-300 italic">"Es la antesala antes de tomar la foto final (commit)."</p>
+                </div>
+                <div class="border-l-4 border-green-500 pl-4">
+                    <p class="font-bold text-green-300">Commit</p>
+                    <p class="text-slate-300 italic">"Punto de restauración. Fundamental para la reproducibilidad en IA."</p>
+                </div>
+                <div class="border-l-4 border-amber-500 pl-4">
+                    <p class="font-bold text-amber-300">Status</p>
+                    <p class="text-slate-300 italic">"Usa 'git status' para saber en qué parte de este ciclo estás."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

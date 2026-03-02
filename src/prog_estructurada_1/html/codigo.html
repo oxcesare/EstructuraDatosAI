@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flujo de Trabajo de Git - Ingeniería en IA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body { background-color: #f8fafc; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .canvas-container { display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        .node { transition: all 0.3s ease; }
+        .node:hover { transform: translateY(-5px); filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1)); }
+        .arrow-text { font-size: 14px; font-weight: 600; fill: #475569; }
+        .command-box { font-family: 'Courier New', Courier, monospace; background: #1e293b; color: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 12px; }
+    </style>
+</head>
+<body>
+    <div class="canvas-container">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl border border-slate-200 max-w-5xl w-full">
+            <h2 class="text-2xl font-bold text-slate-800 mb-2 text-center">Flujo de Trabajo Profesional de Git</h2>
+            <p class="text-slate-500 text-center mb-10 italic">Visualización para Ingeniería en Inteligencia Artificial (2° Semestre)</p>
+            
+            <svg viewBox="0 0 900 400" xmlns="http://www.w3.org/2000/svg">
+                <!-- Definición de Flechas -->
+                <defs>
+                    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                        <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
+                    </marker>
+                </defs>
+
+                <!-- 1. Working Directory -->
+                <g class="node">
+                    <rect x="20" y="100" width="180" height="200" rx="15" fill="#eff6ff" stroke="#3b82f6" stroke-width="3" />
+                    <text x="110" y="145" text-anchor="middle" font-weight="bold" fill="#1e40af" font-size="16">Directorio de</text>
+                    <text x="110" y="165" text-anchor="middle" font-weight="bold" fill="#1e40af" font-size="16">Trabajo</text>
+                    <text x="110" y="220" text-anchor="middle" fill="#60a5fa" font-size="12">(Tus archivos locales)</text>
+                    <rect x="50" y="240" width="120" height="30" rx="5" fill="#3b82f6" fill-opacity="0.1" />
+                    <text x="110" y="260" text-anchor="middle" font-family="monospace" fill="#2563eb" font-size="12">Workspace</text>
+                </g>
+
+                <!-- Flecha Add -->
+                <line x1="200" y1="200" x2="245" y2="200" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" />
+                <text x="225" y="180" text-anchor="middle" class="arrow-text" fill="#059669">git add</text>
+
+                <!-- 2. Staging Area -->
+                <g class="node">
+                    <rect x="260" y="100" width="180" height="200" rx="15" fill="#f0fdf4" stroke="#22c55e" stroke-width="3" />
+                    <text x="350" y="145" text-anchor="middle" font-weight="bold" fill="#166534" font-size="16">Área de</text>
+                    <text x="350" y="165" text-anchor="middle" font-weight="bold" fill="#166534" font-size="16">Preparación</text>
+                    <text x="350" y="220" text-anchor="middle" fill="#4ade80" font-size="12">(Index / Staging)</text>
+                    <rect x="290" y="240" width="120" height="30" rx="5" fill="#22c55e" fill-opacity="0.1" />
+                    <text x="350" y="260" text-anchor="middle" font-family="monospace" fill="#16a34a" font-size="12">Index</text>
+                </g>
+
+                <!-- Flecha Commit -->
+                <line x1="440" y1="200" x2="485" y2="200" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" />
+                <text x="465" y="180" text-anchor="middle" class="arrow-text" fill="#7c3aed">git commit</text>
+
+                <!-- 3. Local Repo -->
+                <g class="node">
+                    <rect x="500" y="100" width="180" height="200" rx="15" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="3" />
+                    <text x="590" y="145" text-anchor="middle" font-weight="bold" fill="#5b21b6" font-size="16">Repositorio</text>
+                    <text x="590" y="165" text-anchor="middle" font-weight="bold" fill="#5b21b6" font-size="16">Local</text>
+                    <text x="590" y="220" text-anchor="middle" fill="#a78bfa" font-size="12">(Historial / .git)</text>
+                    <rect x="530" y="240" width="120" height="30" rx="5" fill="#8b5cf6" fill-opacity="0.1" />
+                    <text x="590" y="260" text-anchor="middle" font-family="monospace" fill="#7c3aed" font-size="12">HEAD</text>
+                </g>
+
+                <!-- Flecha Push -->
+                <line x1="680" y1="180" x2="725" y2="180" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead)" />
+                <text x="705" y="160" text-anchor="middle" class="arrow-text" fill="#ea580c">git push</text>
+
+                <!-- Flecha Pull (Regreso) -->
+                <path d="M 725 220 L 590 220 L 590 340 L 110 340 L 110 305" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)" />
+                <text x="415" y="330" text-anchor="middle" class="arrow-text" fill="#475569">git pull (Update Workspace)</text>
+
+                <!-- 4. Remote Repo -->
+                <g class="node">
+                    <rect x="740" y="100" width="140" height="200" rx="15" fill="#fff7ed" stroke="#f97316" stroke-width="3" />
+                    <text x="810" y="145" text-anchor="middle" font-weight="bold" fill="#9a3412" font-size="16">GitHub</text>
+                    <text x="810" y="165" text-anchor="middle" font-weight="bold" fill="#9a3412" font-size="16">(Remoto)</text>
+                    <circle cx="810" cy="235" r="25" fill="#f97316" fill-opacity="0.1" />
+                    <path d="M810 220 L810 250 M795 235 L825 235" stroke="#f97316" stroke-width="2" /> <!-- Icono simple nube -->
+                </g>
+            </svg>
+
+            <div class="mt-8 grid grid-cols-2 gap-4 text-sm">
+                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                    <span class="font-bold text-slate-700">Paso 1: Preparación</span>
+                    <p class="text-slate-600">Usamos <code class="command-box">git add</code> para mover cambios de nuestra carpeta al área de espera.</p>
+                </div>
+                <div class="bg-slate-50 p-4 rounded-lg border border-slate-200">
+                    <span class="font-bold text-slate-700">Paso 2: Confirmación</span>
+                    <p class="text-slate-600">Creamos una "foto" permanente en el historial local con <code class="command-box">git commit</code>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
