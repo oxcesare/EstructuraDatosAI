@@ -9,3 +9,7 @@ print(edades[4])  # Salida: 22
 # Modificar un elemento
 edades[1] = 31
 print(edades)  # Salida: [25, 31, 19, 45, 22]
+
+# Acceder a un indice negativo 
+print(edades[-1])  # Salida: 22
+print(edades[-3])  # Salida: 19
