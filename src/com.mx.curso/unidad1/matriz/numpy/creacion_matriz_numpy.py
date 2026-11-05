@@ -7,10 +7,10 @@ matriz_A = np.array([
     [7, 8, 9]
 ])
 
-
 for fila in matriz_A:
     for elemento in fila:
         print(elemento, end=" ")
+    print()   
 
 print("*************")
 

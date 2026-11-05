@@ -19,12 +19,23 @@ matriz_C = matriz_A + matriz_A
 for fila in matriz_C:
     for elemento in fila:
         print(elemento, end=" ")
+    print()   
 
 print("***********")
 
 # Multiplicar cada elemento por un número
-matriz_D = matriz_A * 2
+matriz_D = matriz_A * 3
+
+#imprimo la matriz D
+for fila in matriz_D:
+    for elemento in fila:
+        print(elemento, end=" ")
+    print()   
+
+print("***********")
 
 # Producto punto (operación fundamental en redes neuronales)
 vector_E = np.array([1, 2, 3])
 resultado = np.dot(matriz_A, vector_E)
+
+#Imprimo el resultado de Producto Punto 

@@ -1,0 +1,11 @@
+1. Ubuntu
+2. sudo apt install git -y
+3. git show
+4. git branch
+5. fetch
+6. git init
+
+Un repositorio git bare es un repositorio Git que no tiene un directorio de trabajo
+Solo contiene archivos de git
+
+--bare
