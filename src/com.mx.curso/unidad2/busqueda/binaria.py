@@ -6,7 +6,7 @@ def busqueda_binaria(arr, x):
     """
     # Se inicializan los punteros de inicio y fin del arreglo
     inicio = 0
-    fin = len(arr) - 1
+    fin = len(arr) - 1  
 
     # El ciclo se ejecuta mientras el puntero de inicio no exceda al de fin
     while inicio <= fin:
